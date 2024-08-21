@@ -43,7 +43,7 @@
                         class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
-                            Overview
+                            Dashboard
                         </p>
                     </a>
                 </li>
