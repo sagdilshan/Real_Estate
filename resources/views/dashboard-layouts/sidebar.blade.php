@@ -47,17 +47,17 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="{{ route('manage.all.products') }}"
-                        class="nav-link {{ Route::is('manage.all.products') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-bars"></i>
+                 <li class="nav-item">
+                    <a href=" "
+                        class="nav-link  ">
+                        <i class="nav-icon far fa-address-card"></i>
                         <p>
-                            Product Manage
+                            Add Owners
                         </p>
                     </a>
                 </li>
 
-
+{{--
 
                 <li
                     class="nav-item {{ Route::is('all.category.list') || Route::is('add.category.list') || Route::is('edit.category.list') || Route::is('all.post') || Route::is('add.post') || Route::is('edit.post') ? 'menu-open' : '' }}">
