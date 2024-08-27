@@ -38,6 +38,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin-dashboard', 'AdminDashboard')->name('admin.dashboard');
         Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
         Route::get('/add-owner', 'AddOwner')->name('add.owner');
+        Route::post('/admin/store/owner', 'AdminStoreOwners')->name('store.owner');
 
 
     });
