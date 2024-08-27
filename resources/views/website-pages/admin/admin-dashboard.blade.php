@@ -49,8 +49,9 @@
                                             <th>Street</th>
                                             <th>Fake Street</th>
                                             <th>Date Available</th>
-                                            <th>Comments</th>
                                             <th>Page Links</th>
+                                            <th>Comments</th>
+
 
                                             <th>Actions</th>
 
@@ -62,7 +63,7 @@
 
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>dd</td>
                                             <td>dd</td>
                                             <td>dd</td>
@@ -82,59 +83,52 @@
                                             <td>dd</td>
                                             <td>dd</td>
 
-                                        </tr>
-
-                                        <tr>
-                                            <td>ghfh</td>
-                                            <td>fhf</td>
-                                            <td>nv</td>
-                                            <td>dd</td>
-                                            <td>vnv</td><td>dd</td>
-                                            <td>dd</td>
-                                            <td>dd</td>
-                                            <td>vn</td>
-                                            <td>dd</td><td>dd</td>
-                                            <td>dd</td>
-                                            <td>vnvnfh</td>
-                                            <td>dd</td>
-                                            <td>dd</td>
-                                            <td>hfhrh</td>
-                                            <td>dd</td>
-                                            <td>dd</td>
-                                            <td>dd</td>
-                                            <td>dd</td>
-
-                                        </tr>
-
-                                        {{-- @foreach ($pending_project as $key => $item)
-                                     <tr>
-                                         <td>{{ $key + 1 }}</td>
+                                        </tr> --}}
 
 
-                                         <td>{{ $item->p_name }}</td>
-                                         <td>{{ $item->association }}</td>
-                                         <td>{{ $item->p_fee }}</td>
-                                         <td>{{ $item->s_month }}</td>
 
-                                         <td>
-                                             @if ($item->project_status == 'completed')
-                                                 <span class="badge badge-success text-uppercase"
-                                                     style="font-size: 1rem;background-color: rgb(42, 253, 0);">Completed</span>
-                                             @elseif ($item->project_status == 'pending')
-                                                 <span class="badge badge-danger text-uppercase"
-                                                     style="font-size: 1rem;background-color: rgb(255, 18, 18);">Pending</span>
-                                             @else
-                                                 <span class="badge badge-warning text-uppercase"
-                                                     style="font-size: 1rem;background-color: rgb(255, 144, 18);">Canceled</span>
-                                             @endif
-                                         </td>
-                                         {{-- {{ route('manage.edit.products', $item->id) }} --}}
-                                        {{-- <td>
-                                             <a href="" class="btn btn-outline-success">Edit</a>
-                                         </td>
+                                        @foreach ($allowners as $key => $item)
+                                            <tr>
+                                                <td>{{ $key + 1 }}</td>
 
-                                     </tr>
-                                 @endforeach --}}
+
+                                                <td>{{ $item->owner_name }}</td>
+                                                <td>{{ $item->mobile }}</td>
+                                                <td>{{ $item->date_l_s }}</td>
+                                                <td>{{ $item->area }}</td>
+                                                <td>{{ $item->price }}</td>
+                                                <td>{{ $item->type }}</td>
+                                                <td>{{ $item->bedroom }}</td>
+                                                <td>{{ $item->bathroom }}</td>
+                                                <td>{{ $item->outdoor }}</td>
+                                                <td>{{ $item->ac }}</td>
+                                                <td>{{ $item->floor }}</td>
+                                                <td>{{ $item->lift }}</td>
+                                                <td>{{ $item->pet_freindly }}</td>
+                                                <td>{{ $item->street }}</td>
+                                                <td>{{ $item->fake_street }}</td>
+                                                <td>{{ $item->date_available }}</td>
+                                                <td>{{ $item->page_links }}</td>
+                                                <td>{{ $item->comment }}</td>
+
+
+                                                <td>
+                                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                                        <a href="{{ route('edit.owner', $item->id) }}" class="btn btn-outline-success">Edit</a>
+
+                                                        @if ($item->deleted == 'no')
+                                                            <form method="POST" action="{{ route('remove.owner', $item->id) }}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                                            </form>
+                                                        @endif
+                                                    </div>
+                                                </td>
+
+
+                                            </tr>
+                                        @endforeach
 
 
                                         </tfoot>
