@@ -23,4 +23,11 @@ class AdminController extends Controller
 
         return redirect('/');
     }
+
+    public function AddOwner()
+    {
+        return view('website-pages.admin.add-owner');
+
+    }
+
 }
