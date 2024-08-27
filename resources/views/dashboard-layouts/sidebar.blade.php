@@ -1,11 +1,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <aside class="main-sidebar sidebar-dark-lightblue elevation-4">
     <!-- Brand Logo -->
-    <a style="cursor: pointer;" data-widget="pushmenu" class="brand-link">
-        <img src="/assets/dist/img/avatar.png" alt="Woodify Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
+    {{-- <a style="cursor: pointer;" data-widget="pushmenu" class="brand-link">
+
         <span class="brand-text font-weight-dark">Real Estate</span>
-    </a>
+    </a> --}}
+    <a style="cursor: pointer; display: flex; align-items: center; justify-content: center;"
+   data-widget="pushmenu" class="brand-link">
+    <span class="brand-text font-weight-dark">Real Estate</span>
+</a>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -15,18 +19,18 @@
             $profileData = App\Models\User::find($id);
         @endphp --}}
 
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
 
                 <img class="img-circle elevation-2" style="width: 35px;height: 35px;"
                     {{-- src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no_image.png') }}" --}}
-                    src="/assets/dist/img/avatar2.png"  alt="Profile Picture">
+                     {{-- src="/assets/dist/img/avatar2.png"  alt="Profile Picture">
             </div>
             <div class="info">
                 <a href="" class="d-block"><span style="font-size: medium">
                         {{ Auth::user()->name }}</span></a>
             </div>
-        </div>
+        </div> --}}
 
 
 
@@ -36,7 +40,7 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-                <li class="nav-header mb-2">MAIN</li>
+                {{-- <li class="nav-header mb-2">MAIN</li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}"
@@ -50,7 +54,7 @@
                  <li class="nav-item">
                     <a href="{{ route('add.owner') }}"
                         class="nav-link {{ Route::is('add.owner') ? 'active' : '' }} ">
-                        <i class="nav-icon far fa-address-card"></i>
+                        <i class="nav-icon fa fa-check-square"></i>
                         <p>
                             Add Owners
                         </p>
