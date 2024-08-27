@@ -48,8 +48,8 @@
                     </a>
                 </li>
                  <li class="nav-item">
-                    <a href=" "
-                        class="nav-link  ">
+                    <a href="{{ route('add.owner') }}"
+                        class="nav-link {{ Route::is('add.owner') ? 'active' : '' }} ">
                         <i class="nav-icon far fa-address-card"></i>
                         <p>
                             Add Owners
