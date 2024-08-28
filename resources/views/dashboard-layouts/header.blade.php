@@ -13,11 +13,11 @@
 
 
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}" role="button" title="Home">
                 <i class="nav-icon fa fa-home"></i>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.logout') }}" role="button" title="Log Out">
