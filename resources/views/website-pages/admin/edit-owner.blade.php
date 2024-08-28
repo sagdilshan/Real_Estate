@@ -1,5 +1,5 @@
 @extends('dashboard-layouts.body')
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Add Owners')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Edit Owner Details')
 @section('body')
 
 
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Owners</h1>
+                        <h1>Edit Owner Details</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             {{-- <li class="breadcrumb-item"><a href=" ">Back</a></li> --}}
-                            <li class="breadcrumb-item active">Add Owners</li>
+                            <li class="breadcrumb-item active">Edit Owner Details</li>
                         </ol>
                     </div>
                 </div>
