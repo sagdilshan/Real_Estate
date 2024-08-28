@@ -120,7 +120,10 @@
                                                             <form method="POST" action="{{ route('remove.owner', $item->id) }}">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                                                {{-- <button type="submit" class="btn btn-outline-danger">Delete</button> --}}
+                                                                <button type="button" class="btn btn-outline-danger"
+                                                                id="delete"
+                                                                data-id="{{ $item->id }}">Delete</button>
                                                             </form>
                                                         @endif
                                                     </div>
