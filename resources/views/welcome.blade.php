@@ -828,7 +828,7 @@
 
 <body class="antialiased">
     <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        class="relative   sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100  selection:bg-red-500 selection:text-white">
         {{-- @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                 @auth
@@ -848,20 +848,19 @@
         @endif --}}
 
         @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right ">
                 @auth
                     @if (Auth::user()->role == 'admin')
-                    <nav class="flex space-x-4">
-                        <a href="{{ url('/admin-dashboard') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                            Dashboard
-                        </a>
-                        <a href="{{ route('admin.logout') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                            Logout
-                        </a>
-                    </nav>
-
+                        <nav class="flex space-x-4">
+                            <a href="{{ url('/admin-dashboard') }}"
+                                class="font-semibold text-black hover:text-black dark:text-black dark:hover:text-black focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                                Dashboard
+                            </a>
+                            <a href="{{ route('admin.logout') }}"
+                                class="ml-4 font-semibold text-black hover:text-black dark:text-black dark:hover:text-black focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                                Logout
+                            </a>
+                        </nav>
                     @elseif(Auth::user()->role == 'manager')
                         <li><a href=""
                                 class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Logout</a>
@@ -872,23 +871,66 @@
                         </li>
                     @endif
                 @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                        in</a>
+                    {{-- <a href="{{ route('login') }}"
+                        class="font-semibold danger focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                        In</a> --}}
 
-                    @if (Route::has('register'))
+                    {{-- @if (Route::has('register'))
                         <a href="{{ route('register') }}"
                             class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                    @endif
+                    @endif --}}
                 @endauth
             </div>
         @endif
 
-        <div class="max-w-7xl mx-auto p-6 lg:p-8">
 
 
+            <x-guest-layout>
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        </div>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <!-- Email Address -->
+                    <div>
+                        <x-input-label for="login" :value="__('Username / Email')" />
+                        <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="username" />
+
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mt-4">
+                        <x-input-label for="password" :value="__('Password')" />
+
+                        <x-text-input id="password" class="block mt-1 w-full"
+                                        type="password"
+                                        name="password"
+                                        required autocomplete="current-password" />
+
+                            <x-input-error :messages="$errors->get('login')" class="mt-2 text-danger text-bold" />
+
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="block mt-4">
+                        <label for="remember_me" class="inline-flex items-center">
+                            <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        </label>
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+
+
+                        <x-primary-button class="ms-3">
+                            {{ __('Log in') }}
+                        </x-primary-button>
+                    </div>
+                </form>
+            </x-guest-layout>
+
+
     </div>
 </body>
 
